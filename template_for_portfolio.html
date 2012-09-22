@@ -156,8 +156,8 @@
                         {% for image in portfolio.portfolio_images %}
                         <li>
                             <img src="{{ image.image.url }}" alt=""/>
-                            {% if image.caption != nil %}
-                                <p class="flex-caption">{{ image.caption }}</p>
+                            {% if image.caption.size > 0 %}
+                                <p class="flex-caption">{{ image.caption.size }}</p>
                             {% endif %}
                         </li>
                         {% endfor %}
