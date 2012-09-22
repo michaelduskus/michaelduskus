@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Michael Duskus | User Focused Design</title>
+
+    {{ "style.css" | stylesheet_tag }}
+    {{ "blue3.css" | stylesheet_tag }}
+    {{ "blog.css" | stylesheet_tag }}
+
+    {{ "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" | javascript_tag }}
+    {{ "custom.js" | javascript_tag }}
+    {{ "jquery-ui-custom.min.js" | javascript_tag }}
+    {{ "twitter.js" | javascript_tag }}
+    {{ "jquery.easing.js" | javascript_tag }}
+    {{ "jquery.smooth.scroll.js" | javascript_tag }}
+
+    <!-- Page transition Javascript -->
+    {{ "page-transitions.js" | javascript_tag }}
+
+    <!-- Flexslider JavaScript Files -->
+    {{ "jquery.flexslider.js" | javascript_tag }}
+    {{ "flexslider.css" | stylesheet_tag }}
+
+    <!-- PrettyPhoto -->
+    {{ "prettyPhoto.css" | stylesheet_tag }}
+    {{ "prettyPhoto.js" | javascript_tag }}
+
+    <!-- Masonry Javascript File -->
+    {{ "jquery.isotope.min.js" | javascript_tag }}
+
+    <!-- Contact form Javascript -->
+    {{ "contact-form-validate.js" | javascript_tag }}
+
+    <!-- Google Map Javascript -->
+    {{ "google_map_plugin.js" | javascript_tag }}
+    <!-- {{ "http://maps.googleapis.com/maps/api/js?sensor=false" | javascript_tag }} -->
+
+    <!-- Full Image Background Javascript -->
+    {{ "jquery.backstretch.min.js" | javascript_tag }}
+
+    <!-- Photostream Javascript -->
+    {{ "bra.photostream.js" | javascript_tag }}
+</head>
+
+<body id="top">
+
+<p id="back-top">
+    <a href="#top">Back to Top</a>
+</p>
+
+<div id="notification-wrapper">
+    <div class="notification">
+        <div class="tweets"></div>
+        <!--END TWEETS-->
+    </div>
+    <!-- END NOTIFICATION -->
+</div>
+<!-- END NOTIFICATION-WRAPPER -->
+
+<div id="wrapper">
+
+<div class="content clearfix">
+
+    <!-- START HEADER -->
+
+    <div id="header">
+        <div class="social-bookmarks">
+            <ul>
+                <li class="twitter"><a href="http://www.twitter.com/duskus" target="_blank">
+                    {{ 'socialize-icons/white/twitter.png' | theme_image_tag }}
+                </a></li>
+                <li class="googleplus"><a href="https://plus.google.com/113644583106479643805/about" target="_blank">
+                    {{ 'socialize-icons/white/googleplus.png' | theme_image_tag }}
+                </a></li>
+                <li class="dribbble"><a href="http://dribbble.com/michaelduskus" target="_blank">
+                    {{ 'socialize-icons/white/dribbble.png' | theme_image_tag }}
+                </a></li>
+                <li class="rss"><a href="#">
+                    {{ 'socialize-icons/white/rss.png' | theme_image_tag }}
+                </a></li>
+                <li id="notification-trigger" class="notification-arrows text active">Latest tweet</li>
+            </ul>
+        </div>
+        <!--END SOCIAL-BOOKMARKS-->
+
+        <div id="logo">
+            <a href="/index.html">{{ 'logo_header.png' | theme_image_tag }}</a>
+        </div>
+        <!--END LOGO-->
+
+        <div id="primary-menu">
+            <ul class="menu">
+                <li><a href="/index.html#home"
+                       data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Welcome</strong><span>Home</span></a>
+                </li>
+                <li><a href="/index.html#about"
+                       data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>About</strong><span>Michael Duskus</span></a>
+                </li>
+                <li><a href="/index.html#portfolio"
+                       data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Work</strong><span>What I do</span></a>
+                </li>
+                <li><a href="/index.html#blog"
+                       data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Blog</strong><span>What I think</span></a>
+                </li>
+                <li><a href="/index.html#contact"
+                       data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Contact</strong><span>Get in touch</span></a>
+                </li>
+            </ul>
+            <!--END UL MENU-->
+
+        </div>
+        <!--END PRIMARY MENU-->
+
+        <div class="clear"></div>
+    </div>
+    <!--END HEADER-->
+
+    <!-- START SINGLE PAGE CONTENT -->
+
+    <div class="singlepage-content-wrapper">
+
+        <div class="section-title">
+
+            <h1 class="item-title">{{ portfolio.title }}</h1>
+
+            <ul class="item-nav">
+                <li class="prev"><a href="#" title="Previous item">Prev</a></li>
+                <li class="all"><a href="#" title="All items">All</a></li>
+                <li class="next"><a href="#" title="Next item">Next</a></li>
+            </ul>
+            <!--END ITEM-NAV-->
+
+        </div>
+        <!--END SECTION TITLE-->
+
+        <div id="portfolio-item-wrapper">
+
+            <div class="one-third">
+
+                <div class="item-details">
+                    <h2 class="title">{{ portfolio.description_title }}</h2>
+                    {{ portfolio.description }}
+                </div>
+                <!--END ITEM-DETAILS-->
+
+            </div>
+            <!--END ONE-THIRD-->
+
+            <div class="two-third last">
+
+                <div class="flexslider" id="portfolio-slider">
+                    <ul class="slides">
+                        {% for image in portfolio.portfolio_images %}
+                        <li>
+                            <img src="{{ image.image.url }}" alt=""/>
+                            {% if image.caption != nil %}
+                                <p class="flex-caption">{{ image.caption }}</p>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <!--END UL SLIDES-->
+                </div>
+                <!--END FLEXSLIDER-->
+
+            </div>
+            <!--END TWO-THIRD-->
+
+        </div>
+        <!--END PORTFOLIO-ITEM-WRAPPER-->
+
+    </div>
+    <!--END SINGLEPAGE-CONTENT-WRAPPER-->
+
+    <!-- START SINGLE PAGE CONTENT -->
+
+
+    <!-- START PORTFOLIO -->
+    <!-- START STATIC CONTENT WRAPPER -->
+
+    <div class="static-content-wrapper">
+
+        <div class="section-nav filterable">
+            <ul id="portfolio-nav">
+                <li class="current"><a href="#" data-filter="*">All</a></li>
+                <li><a data-filter=".ux" href="#">UX</a></li>
+                <li><a data-filter=".ui" href="#">UI</a></li>
+                <li><a data-filter=".branding" href="#">Branding</a></li>
+                <li><a data-filter=".other" href="#">Other</a></li>
+            </ul>
+            <!--END PORTFOLIO-NAV-->
+        </div>
+        <!--END SECTION-NAV FILTERABLE-->
+
+        <div class="portfolio-grid">
+
+            <ul id="thumbs">
+                {% for portfolio in contents.portfolios %}
+                <li class="item {{ portfolio.classname | downcase }}">
+                    <div class="img-container">
+                        <div class="item-img">
+                            <img src="{{ portfolio.preview.url }}" alt=""/>
+                        </div>
+                        <!-- slideshow -->
+                        <ul>
+                            <li><a href="/portfolios/{{ portfolio._permalink }}" class="view">details</a></li>
+                            <li><a href="{{ portfolio.preview.url }}" class="preview"
+                                   data-rel="prettyPhoto[ux]">preview</a></li>
+                        </ul>
+                    </div>
+                    <!--END IMG-CONTAINER-->
+
+                    <div class="item-info">
+                        <h3 class="title">{{ portfolio.title }}</h3>
+                        <span class="category">{{ portfolio.category }}</span>
+
+                        <div class="intro">{{ portfolio.summary }}</div>
+                    </div>
+                    <!--END ITEM-INFO-->
+
+                </li>
+                {% endfor %}
+            </ul>
+            <!--END UL-->
+
+        </div>
+        <!--END PORTFOLIO-GRID-->
+
+    </div>
+    <!--END STATIC-CONTENT-WRAPPER-->
+
+</div>
+<!--END CONTENT-->
+
+<!-- START FOOTER -->
+
+<div id="footer">
+
+    <div id="footer-content-wrapper">
+
+        <div id="footer-content">
+
+            <a href="#" class="footer-trigger"><span></span></a>
+
+            <div id="trigger">
+
+                <div class="one-fourth">
+                    <h3 class="title">Flickr photostream</h3>
+
+                    <div class="photostream flickr_list_footer"></div>
+                    <!--END PHOTOSTREAM FLICKR_LIST-->
+                </div>
+                <!--END ONE-FOURTH-->
+
+
+                <div class="one-fourth">
+                    <h3 class="title">Latest tunes</h3>
+                    {{ 'album_art.jpg' | theme_image_tag }}
+                </div>
+                <!--END ONE-FOURTH-->
+
+
+                <div class="one-fourth">
+                    <h3 class="title">Latest tweets</h3>
+
+                    <div class="tweets"></div>
+                    <!--END TWEETS-->
+                </div>
+                <!--END ONE-FOURTH-->
+
+
+                <div class="one-fourth last">
+                    {{ 'logo_footer.png' | theme_image_tag }}
+                </div>
+                <!--END ONE-FOURTH LAST-->
+
+            </div>
+            <!--END TRIGGER-->
+
+        </div>
+        <!--END FOOTER-CONTENT-->
+
+    </div>
+    <!--END FOOTER-CONTENT-WRAPPER-->
+
+
+    <div id="footer-bottom">
+
+        <div class="one-half">
+            <p>Copyright &copy; 2012 Michael Duskus. All rights reserved.</p>
+        </div>
+        <!--END ONE-HALF-->
+
+        <div class="one-half text-align-right last">
+            <p>Socialize with me on <a href="http://www.twitter.com/duskus" target="_blank">Twitter</a>, <a
+                    href="https://plus.google.com/113644583106479643805/about" target="_blank">Google+</a>, <a href="#">Dribbble</a>
+                or <a href="#">RSS</a></p>
+        </div>
+        <!--END ONE-HALF TRIGGER-FOOTER LAST-->
+
+    </div>
+    <!--END FOOTER-BOTTOM-->
+
+</div>
+<!--END FOOTER-->
+
+<!-- END FOOTER -->
+
+</div>
+<!--END WRAPPER-->
+
+</body>
+</html>

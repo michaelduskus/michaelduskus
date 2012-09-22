@@ -1,0 +1,11 @@
+.DS_Store
+.bundle
+db/*.sqlite3
+db/schema.rb
+db/*_structure.sql
+db/structure.sql
+log/*
+tmp/
+solr/*
+.idea/**
+

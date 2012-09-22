@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Michael Duskus | User Focused Design</title>
+
+  {{ "style.css" | stylesheet_tag }}
+  {{ "blue3.css" | stylesheet_tag }}
+  {{ "blog.css" | stylesheet_tag }}
+
+  {{ "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" | javascript_tag }}
+  {{ "custom.js" | javascript_tag }}
+  {{ "jquery-ui-custom.min.js" | javascript_tag }}
+  {{ "twitter.js" | javascript_tag }}
+  {{ "jquery.easing.js" | javascript_tag }}
+  {{ "jquery.smooth.scroll.js" | javascript_tag }}
+
+  <!-- Page transition Javascript -->
+  {{ "page-transitions.js" | javascript_tag }}
+
+  <!-- Flexslider JavaScript Files -->
+  {{ "jquery.flexslider.js" | javascript_tag }}
+  {{ "flexslider.css" | stylesheet_tag }}
+
+  <!-- PrettyPhoto -->
+  {{ "prettyPhoto.css" | stylesheet_tag }}
+  {{ "prettyPhoto.js" | javascript_tag }}
+
+  <!-- Masonry Javascript File -->
+  {{ "jquery.isotope.min.js" | javascript_tag }}
+
+  <!-- Contact form Javascript -->
+  {{ "contact-form-validate.js" | javascript_tag }}
+
+  <!-- Google Map Javascript -->
+  {{ "google_map_plugin.js" | javascript_tag }}
+  <!-- {{ "http://maps.googleapis.com/maps/api/js?sensor=false" | javascript_tag }} -->
+
+  <!-- Full Image Background Javascript -->
+  {{ "jquery.backstretch.min.js" | javascript_tag }}
+
+  <!-- Photostream Javascript -->
+  {{ "bra.photostream.js" | javascript_tag }}
+</head>
+
+<body id="top" class="home">
+<p id="back-top">
+  <a href="#top">Back to Top</a>
+</p>
+
+<div id="notification-wrapper">
+  <div class="notification">
+    <div class="tweets"></div>
+    <!--END TWEETS-->
+  </div>
+  <!-- END NOTIFICATION -->
+</div>
+<!-- END NOTIFICATION-WRAPPER -->
+<div id="wrapper">
+<div class="content clearfix">
+
+<!-- START HEADER -->
+
+<div id="header">
+  <div class="social-bookmarks">
+    <ul>
+      <li class="twitter"><a href="http://www.twitter.com/duskus" target="_blank">
+        {{ 'socialize-icons/white/twitter.png' | theme_image_tag }}
+      </a></li>
+      <li class="googleplus"><a href="https://plus.google.com/113644583106479643805/about" target="_blank">
+        {{ 'socialize-icons/white/googleplus.png' | theme_image_tag }}
+      </a></li>
+      <li class="dribbble"><a href="http://dribbble.com/michaelduskus" target="_blank">
+        {{ 'socialize-icons/white/dribbble.png' | theme_image_tag }}
+      </a></li>
+      <li class="rss"><a href="#">
+        {{ 'socialize-icons/white/rss.png' | theme_image_tag }}
+      </a></li>
+      <li id="notification-trigger" class="notification-arrows text active">Latest tweet</li>
+    </ul>
+  </div>
+  <!--END SOCIAL-BOOKMARKS-->
+
+  <div id="logo">
+    <a href="index.html">{{ 'logo_header.png' | theme_image_tag }}</a>
+  </div>
+  <!--END LOGO-->
+
+  <div id="primary-menu">
+    <ul class="menu">
+      <li><a href="#home"
+             data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Welcome</strong><span>Home</span></a>
+      </li>
+      <li><a href="#about"
+             data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>About</strong><span>Michael Duskus</span></a>
+      </li>
+      <li><a href="#portfolio"
+             data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Work</strong><span>What I do</span></a>
+      </li>
+      <li><a href="#blog" data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Blog</strong><span>What I think</span></a>
+      </li>
+      <li><a href="#contact" data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Contact</strong><span>Get in touch</span></a>
+      </li>
+    </ul>
+    <!--END UL MENU-->
+
+  </div>
+  <!--END PRIMARY MENU-->
+
+  <div class="clear"></div>
+</div>
+<!--END HEADER-->
+
+<!-- START DYNAMIC CONTENT WRAPPER -->
+
+<div class="dynamic-content-wrapper">
+<div id="home">
+  <div class="slideshow-container">
+    <div class="flexslider" id="index-slider">
+      <ul class="slides">
+        {% for flexslider in contents.flexsliders %}
+        <li>
+          <a href="#">
+            <img src="{{ flexslider.image.url }}"/>
+          </a>
+          {% if flexslider.caption != nil %}
+          <p class="flex-caption">{{ flexslider.caption }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!--END FLEXSLIDER-->
+
+    <div class="section-title">
+      <h1>Call it what you like.</h1>    <br/>
+      <strong>I help companies design digital products that delight the user and meet business needs without
+        cutting corners.</strong>
+      <br/><br/>
+      <!--THIS IS THE SMALLER COMMENT BELOW THE BOLD ONE-->
+      <br/>
+
+      <p>
+        <ul class="menu">
+          <li><a href="#about" data-rel="images/pattern/bg-12.png?tiled">Learn more.</a></li>
+        </ul>
+      </p>
+    </div>
+    <!--END SECTION TITLE-->
+
+  </div>
+  <!--END SLIDESHOW-CONTAINER-->
+
+</div>
+<!--END HOME-->
+
+<div id="about">
+  <div class="section-title">
+    <h1>About</h1>
+
+    <p class="section-subtitle">I help companies design digital products that delight the user and meet business
+      needs without cutting corners.</p>
+  </div>
+  <!--END SECTION TITLE-->
+
+  <div class="divider-border"></div>
+
+  <div class="one-third team">
+    <h4>3-2-1</h4>
+    {{ 'profile_photo.jpg' | theme_image_tag }}
+  </div>
+  <!--END ONE-THIRD-->
+
+  <div class="two-third last">
+    <h4>Michael is ...</h4>
+
+    <p>Systematic, curious, and creative, Michael is a <a
+        href="http://uxdesign.smashingmagazine.com/2010/10/05/what-is-user-experience-design-overview-tools-and-resources/"
+        target="_blank">User Experience Designer</a> with a background in visual communication. Located in San
+      Francisco, California, he is currently the Lead UX + UI designer on an agile team at <a
+          href="http://www.socialchorus.com" target="_blank">SocialChorus</a> where he leads the design and
+      strategy of mobile and desktop solutions for a fast-growing <a
+          href="http://en.wikipedia.org/wiki/Software_as_a_service" target="_blank">SaaS</a> company.</p>
+
+    <p>A graduate of San Francisco State University, Michael holds a BA in Industrial Arts, and has been a guest
+      speaker and critic at events held by the <a href="http://design.sfsu.edu/" target="_blank">Department of
+        Design + Industry</a>. He is a member of the Interaction Design Association (IxDA), San Francisco, and
+      his graphic design and branding work has been recognized by the Art Directors Club and AIGA SF. Michael
+      leverages his formal training and experience in graphic design and brand development to deliver first-class
+      user experiences that helps companies deliver compelling digital products.</p>
+
+    <p>Born and raised in a multi-cultural military family and prior military member himself, Michael has always
+      been an explorer. He grew up in six different time zones and has experienced the world from various cultures
+      and beliefs and draws upon these experiences to empathize with the user in his work. With his
+      entrepreneurial mind, Michael brings an innovative spirit and enduring sense of humor to any team.</p>
+
+  </div>
+  <!--END TWO-THIRD-LAST-->
+
+  <div class="divider-border"></div>
+
+  <div class="one">
+
+    <div class="one-third">
+      <h4>Pinterest Photostream</h4>
+
+      <div class="photostream pinterest_list"></div>
+      <!--END PHOTOSTREAM PINTEREST_LIST-->
+    </div>
+    <!--END ONE-THIRD-->
+
+    <div class="one-third">
+      <h4>Dribbble Photostream</h4>
+
+      <div class="photostream dribbble_list"></div>
+      <!--END PHOTOSTREAM DRIBBBLE_LIST-->
+    </div>
+    <!--END ONE-THIRD-->
+
+    <div class="one-third last">
+      <h4>Flickr Photostream</h4>
+
+      <div class="photostream flickr_list"></div>
+      <!--END PHOTOSTREAM FLICKR_LIST-->
+    </div>
+    <!--END ONE-THIRD LAST-->
+  </div>
+  <!--END ONE-->
+
+</div>
+<!--END ABOUT-->
+
+<div id="blog">
+
+<div class="section-title">
+  <h1>Blog</h1>
+
+  <p class="section-subtitle">Design is important because chaos is so hard, that's why our team was created from the
+    desire to make a living while promoting and nurturing what we value in our daily lives.</p>
+</div>
+<!--END SECTION TITLE-->
+
+<div class="divider-border"></div>
+
+<div id="inner-content">
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">29</span><span class="month">Apr</span></div>
+      <a href="#">Tag post image</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title"><a href="blog-single.html">Duis aute irure dolor in reprehenderit in voluptate.</a></h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Themeforest</a></li>
+      <li><span>Tags</span> <a href="#">Standard</a></li>
+      <li><span>With</span> <a href="#">9 comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <div class="entry-media">
+      <a href="#"><img src="images/blog-item-1.jpg" alt="" width="520"/></a>
+    </div>
+    <!--END ENTRY-MEDIA-->
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="blog-single.html" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">27</span><span class="month">Apr</span></div>
+      <a href="#">Tag post image</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title"><a href="blog-single.html">Just plain old regular post, same thing as the one above.</a>
+      </h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Themeforest</a></li>
+      <li><span>Tags</span> <a href="#">Standard</a></li>
+      <li><span>With</span> <a href="#">7 comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <div class="entry-media">
+      <a href="#"><img src="images/blog-item-4.jpg" alt="" width="520"/></a>
+    </div>
+    <!--END ENTRY-MEDIA-->
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="blog-single.html" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">25</span><span class="month">Apr</span></div>
+      <a href="#" class="video">Tag post video</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title"><a href="blog-single.html">Post with video included, vimeo or youtube, it's up to you.</a>
+      </h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Albert S</a></li>
+      <li><span>Tags</span> <a href="#">Video</a></li>
+      <li><span>With</span> <a href="#">5 comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <div class="entry-media">
+      <iframe src="http://player.vimeo.com/video/19246302?title=0&amp;byline=0&amp;portrait=0" frameborder="0"
+              allowfullscreen="" webkitallowfullscreen="" width="520" height="380"></iframe>
+    </div>
+    <!--END ENTRY-MEDIA-->
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="blog-single.html" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">23</span><span class="month">Apr</span></div>
+      <a href="#" class="link">Tag post link</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title"><a href="http://brankic1979.com/icons/index.php">Download 350 pixel perfect icons
+        (Link)</a></h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Brankic1979</a></li>
+      <li><span>Tags</span> <a href="#">Link</a></li>
+      <li><span>With</span> <a href="#">3 comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="http://brankic1979.com/icons/index.php" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">21</span><span class="month">Apr</span></div>
+      <a href="#" class="gallery">Tag post gallery</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title"><a href="blog-single.html">Post with picture slideshow included.</a></h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Brad Pitt</a></li>
+      <li><span>Tags</span> <a href="#">Gallery</a></li>
+      <li><span>With</span> <a href="#">1 comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <div class="entry-media">
+
+      <div class="flexslider" id="blog-slider">
+        <ul class="slides">
+          <li>
+            <img src="images/slider4.jpg" alt=""/>
+
+            <p class="flex-caption">This is a place for a brief description.</p>
+          </li>
+          <li>
+            <a href="#"><img src="images/slider2.jpg" alt=""/></a>
+
+            <p class="flex-caption">Here we go again, history repeating!</p>
+          </li>
+          <li>
+            <img src="images/slider3.jpg" alt=""/>
+          </li>
+          <li>
+            <img src="images/slider1.jpg" alt=""/>
+          </li>
+        </ul>
+        <!--END UL SLIDES-->
+      </div>
+      <!--END FLEXSLIDER-->
+
+    </div>
+    <!--END ENTRY-MEDIA-->
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="blog-single.html" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+
+<div class="post">
+
+  <div class="entry-heading">
+
+    <div class="entry-date">
+      <div><span class="day">19</span><span class="month">Apr</span></div>
+      <a href="#" class="quote">Tag post quote</a>
+    </div>
+    <!--END ENTRY-DATE-->
+
+    <div class="entry-title">
+      <h2 class="title">"Simplicity is the ultimate sophistication" - Leonardo Da Vinci</h2>
+    </div>
+    <!--END ENTRY-TITLE-->
+
+  </div>
+  <!--END ONE-->
+
+  <div class="entry-meta">
+    <ul>
+      <li><span>Posted by</span> <a href="#">Johnny</a></li>
+      <li><span>Tags</span> <a href="#">Quote</a></li>
+      <li><span>With</span> <a href="#">no comments</a></li>
+    </ul>
+  </div>
+  <!--END ENTRY-META-->
+
+  <div class="entry-content">
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum
+      sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem
+      lacinia et. Cras et ligula libero. Quisque quis&hellip;</p>
+
+    <p><a href="blog-single.html" class="more-link">Continue reading &rarr;</a></p>
+
+  </div>
+  <!--END ENTRY-CONTENT -->
+
+</div>
+<!--END POST-->
+
+</div>
+<!--END INNER-CONTENT-->
+
+
+<div id="sidebar">
+
+  <div class="widget">
+    <h3 class="title">Popular posts</h3>
+
+    <ul class="bra_recent_entries">
+      <li><img src="images/portfolio-item-1.jpg" class="alignleft" alt="" width="40" height="40"/>
+        <span class="date">October 29, 2011</span>
+        <a href="#">Erat nisl faucibus justo verit et quasi architecto beatae.</a>
+      </li>
+
+      <li><img src="images/portfolio-item-2.jpg" class="alignleft" alt="" width="40" height="40"/>
+        <span class="date">October 23, 2011</span>
+        <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+      </li>
+
+      <li><img src="images/portfolio-item-3.jpg" class="alignleft" alt="" width="40" height="40"/>
+        <span class="date">October 19, 2011</span>
+        <a href="#">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a>
+      </li>
+
+      <li><img src="images/portfolio-item-4.jpg" class="alignleft" alt="" width="40" height="40"/>
+        <span class="date">October 12, 2011</span>
+        <a href="#">Mattis purus sit amet fermentum.</a>
+      </li>
+    </ul>
+    <!--END UL-->
+  </div>
+  <!--END WIDGET-->
+
+  <div class="widget">
+    <h3 class="title">Recent comments</h3>
+
+    <ul id="recentcomments">
+      <li>
+        <a href="#">Mr WordPress</a> on <a href="#">Hello world!</a>
+      </li>
+
+      <li>
+        <a href="#">Mr WordPress</a> on <a href="#">Sed ut perspiciatis unde omnis iste natus error sit
+        voluptatem!</a>
+      </li>
+
+      <li>
+        <a href="#">Mr WordPress</a> on <a href="#">Hello world!</a>
+      </li>
+
+      <li>
+        <a href="#">Mr WordPress</a> on <a href="#">Hello world!</a>
+      </li>
+    </ul>
+    <!--END UL-->
+  </div>
+  <!--END WIDGET-->
+
+  <div class="widget">
+    <h3 class="title">Archive</h3>
+    <ul class="archive">
+      <li><a href="#">December 2011</a>&nbsp;(4)</li>
+      <li><a href="#">January 2012</a>&nbsp;(3)</li>
+      <li><a href="#">February 2012</a>&nbsp;(2)</li>
+      <li><a href="#">March 2012</a>&nbsp;(1)</li>
+      <li><a href="#">April 2012</a>&nbsp;(5)</li>
+    </ul>
+    <!--END UL-->
+  </div>
+  <!--END WIDGET-->
+
+</div>
+<!--END SIDEBAR-->
+
+</div>
+<!--END BLOG-->
+
+<div id="features">
+
+<div class="section-title">
+  <h1>Features</h1>
+
+  <p class="section-subtitle">It is important to make a web site visually attractive, that`s why we never lose sight
+    of the fact that every site must be easy to use and intuitive. Try it, it's 100% fat free.</p>
+</div>
+<!--END SECTION TITLE-->
+
+<div class="divider-border"></div>
+
+
+<div class="one">
+  <h4>Socialize icons</h4>
+  <ul class="social-personal">
+    <li><a href="#">{{ socialize-icons/dark/aim.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/apple.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/behance.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/blogger.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/cargo.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/delicious.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/deviantart.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/digg.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/dopplr.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/dribbble.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/ember.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/evernote.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/facebook.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/flickr.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/forrst.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/google.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/googleplus.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/gowalla.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/grooveshark.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/html5.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/icloud.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/lastfm.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/linkedin.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/metacafe.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/mixx.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/myspace.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/netvibes.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/newsvine.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/orkut.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/picasa.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/plurk.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/posterous.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/reddit.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/rss.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/skype.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/technorati.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/tumblr.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/twitter.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/vimeo.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/wordpress.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/yahoo.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/yelp.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/youtube.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/zerply.png" }}</a></li>
+    <li><a href="#">{{ socialize-icons/dark/zootool.png" }}</a></li>
+  </ul>
+</div>
+<!--END ONE-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one">
+
+  <div class="one-third">
+    <h4>Pinterest Photostream</h4>
+
+    <div class="photostream pinterest_list"></div>
+    <!--END PHOTOSTREAM PINTEREST_LIST-->
+  </div>
+  <!--END ONE-THIRD-->
+
+  <div class="one-third">
+    <h4>Dribbble Photostream</h4>
+
+    <div class="photostream dribbble_list"></div>
+    <!--END PHOTOSTREAM DRIBBBLE_LIST-->
+  </div>
+  <!--END ONE-THIRD-->
+
+  <div class="one-third last">
+    <h4>Flickr Photostream</h4>
+
+    <div class="photostream flickr_list"></div>
+    <!--END PHOTOSTREAM FLICKR_LIST-->
+  </div>
+  <!--END ONE-THIRD LAST-->
+</div>
+<!--END ONE-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one-half">
+  <h4>Toggle</h4>
+
+  <div class="toggle-wrap">
+    <span class="trigger"><a href="#">Search Engine Optimization</a></span>
+
+    <div class="toggle-container">
+      <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+        tempus.</strong></p>
+
+      <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+        rem aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et
+        arcu.</p>
+    </div>
+    <!--END TOGGLE-WRAP-->
+  </div>
+  <!--END TOGGLE-CONTAINER-->
+
+  <div class="toggle-wrap">
+    <span class="trigger"><a href="#">Top Notch Support</a></span>
+
+    <div class="toggle-container">
+      <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+        tempus.</strong></p>
+
+      <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+        rem aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et
+        arcu.</p>
+    </div>
+    <!--END TOGGLE-WRAP-->
+  </div>
+  <!--END TOGGLE-CONTAINER-->
+
+  <div class="toggle-wrap">
+    <span class="trigger"><a href="#">eCommerce</a></span>
+
+    <div class="toggle-container">
+      <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+        tempus.</strong></p>
+
+      <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+        rem aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et
+        arcu.</p>
+    </div>
+    <!--END TOGGLE-WRAP-->
+  </div>
+  <!--END TOGGLE-CONTAINER-->
+
+</div>
+<!--END ONE-HALF-->
+
+
+<div class="one-half last">
+  <h4>Accordion</h4>
+
+  <div class="trigger-button"><span>Search Engine Optimization</span></div>
+  <div class="accordion">
+    <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+      tempus.</strong></p>
+
+    <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et arcu.</p>
+  </div>
+  <!--END ACCORDION-->
+
+  <div class="trigger-button"><span>Top Notch Support</span></div>
+  <div class="accordion">
+    <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+      tempus.</strong></p>
+
+    <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et arcu.</p>
+  </div>
+  <!--END ACCORDION-->
+
+  <div class="trigger-button"><span>eCommerce</span></div>
+  <div class="accordion">
+    <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+      tempus.</strong></p>
+
+    <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et arcu.</p>
+  </div>
+  <!--END ACCORDION-->
+
+</div>
+<!--END ONE-HALF LAST-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one">
+  <h4>Buttons</h4>
+
+  <p class="one-half"><a href="#" class="button small rounded grey">Small</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    small rounded grey&quot;&gt;Small&lt;/a&gt;</code></p>
+
+  <p class="one-half last"><a href="#" class="button small grey">Small</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    small grey&quot;&gt;Small&lt;/a&gt;</code></p>
+
+  <p class="one-half"><a href="#" class="button medium rounded grey">Medium</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    medium rounded grey&quot;&gt;Medium&lt;/a&gt;</code></p>
+
+  <p class="one-half last"><a href="#" class="button medium grey">Medium</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    medium grey&quot;&gt;Medium&lt;/a&gt;</code></p>
+
+  <p class="one-half"><a href="#" class="button large rounded grey">Large</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    large rounded grey&quot;&gt;Large&lt;/a&gt;</code></p>
+
+  <p class="one-half last"><a href="#" class="button large grey">Large</a><code>&lt;a href=&quot;#&quot; class=&quot;button
+    large grey&quot;&gt;Large&lt;/a&gt;</code></p>
+</div>
+<!--END ONE-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one">
+  <h4>Highlights</h4>
+
+  <div class="one-third">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight1">Etiam feugiat nunc ut nibh interdum tempus</span>.
+      Med ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+
+    <p><code>&lt;span class=&quot;highlight1&quot;&gt;Text&lt;/span&gt;</code></p>
+  </div>
+  <!--END ONE-THIRD-->
+
+  <div class="one-third">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight2">Etiam feugiat nunc ut nibh interdum tempus</span>.
+      Med ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+
+    <p><code>&lt;span class=&quot;highlight2&quot;&gt;Text&lt;/span&gt;</code></p>
+  </div>
+  <!--END ONE-THIRD-->
+
+  <div class="one-third last">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight3">Etiam feugiat nunc ut nibh interdum tempus</span>.
+      Med ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+
+    <p><code>&lt;span class=&quot;highlight3&quot;&gt;Text&lt;/span&gt;</code></p>
+  </div>
+  <!--END ONE-THIRD LAST-->
+</div>
+<!--END ONE-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one-half">
+  <h4>Blockquote Left</h4>
+
+  <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae
+    dicta sunt explicabo nemo enim ipsam voluptatem non ultricies dicta sunt etiam eget mi enim.</p>
+  <blockquote class="left"><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis ligula. Vestibulum id
+    porta felis euismod.</p></blockquote>
+  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo, nemo
+    enim ipsam voluptatem quia voluptas sit asperna.</p>
+
+  <p><code>&lt;blockquote class=&quot;left&quot;&gt;Text&lt;/blockquote&gt;</code></p>
+</div>
+<!--END ONE-HALF-->
+
+
+<div class="one-half last">
+  <h4>Blockquote Right</h4>
+
+  <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae
+    dicta sunt explicabo nemo enim ipsam voluptatem non ultricies dicta sunt etiam eget mi enim.</p>
+  <blockquote class="right"><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis ligula. Vestibulum
+    id porta felis euismod.</p></blockquote>
+  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo, nemo
+    enim ipsam voluptatem quia voluptas sit asperna.</p>
+
+  <p><code>&lt;blockquote class=&quot;right&quot;&gt;Text&lt;/blockquote&gt;</code></p>
+</div>
+<!--END ONE-HALF LAST-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one-third">
+  <h4>One third</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-THIRD-->
+
+<div class="one-third">
+  <h4>One third</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-THIRD-->
+
+<div class="one-third last">
+  <h4>One third</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-THIRD LAST-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="two-third">
+  <h4>Two third</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum tempus, nemo
+    enim ipsam voluptatem quia voluptas sit asperna.</strong></p>
+
+  <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+    eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo, nemo enim
+    ipsam voluptatem quia voluptas sit asperna.</p>
+</div>
+<!--END TWO-THIRD-->
+
+<div class="one-third last">
+  <h4>One third</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit etiam feugiat nunc ut.</strong></p>
+
+  <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+</div>
+<!--END ONE-THIRD LAST-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one-half">
+  <h4>One half</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Med ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+</div>
+<!--END ONE-HALF-->
+
+<div class="one-half last">
+  <h4>One half</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Med ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+</div>
+<!--END ONE-HALF LAST-->
+
+
+<div class="divider-border"></div>
+
+
+<div class="one-fourth">
+  <h4>One fourth</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-FOURTH-->
+
+<div class="one-fourth">
+  <h4>One fourth</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-FOURTH-->
+
+<div class="one-fourth">
+  <h4>One fourth</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-FOURTH-->
+
+<div class="one-fourth last">
+  <h4>One fourth</h4>
+
+  <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat nunc ut nibh interdum
+    tempus.</strong></p>
+
+  <p>Seded ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+    aperiam.</p>
+</div>
+<!--END ONE-FOURTH LAST-->
+
+</div>
+<!--END FEATURES-->
+
+<div id="contact">
+
+  <div class="section-title">
+    <h1>Call me. Maybe.</h1>
+
+    <p class="section-subtitle">Got an interesting project? Let's chat. Send me a message below, or reach out and
+      socialize with me. I'll get back to you soon.</p>
+  </div>
+  <!--END SECTION TITLE-->
+
+
+  <div class="divider-border"></div>
+
+
+  <div class="one">
+    <div id="bra-map" class="google-map"></div>
+  </div>
+  <!--END ONE-->
+
+
+  <div class="divider-border"></div>
+
+
+  <div class="one-half">
+
+    <h4>Contact information</h4>
+
+    <p><strong>Social info</strong><br/>
+      <a href="http:/www.twitter.com/duskus" target="_blank">On Twitter</a><br/>
+      <a href="https://plus.google.com/113644583106479643805/about" target="_blank">On Google+</a><br/>
+      <a href="http://www.linkedin.com/in/michaelduskus" target="_blank">On LinkedIn</a></p>
+
+    <p><strong>Contact info</strong><br/>
+      Telephone: +1 415 568 8985<br/>
+      Fax: no thanks<br/>
+      Email: <a href="mailto:michaelduskus@gmail.com"> michaelduskus@gmail.com</a></p>
+
+  </div>
+  <!--END ONE-HALF-->
+
+
+  <div class="one-half last">
+
+    <h4>Send me a message</h4>
+
+    <form action="send.php" id="contact-form" class="form" method="post">
+      <ul>
+        <li>
+          <p><strong>Name</strong> <em>(*)</em></p>
+          <input name="name" type="text" class="requiredField"/>
+        </li>
+
+        <li>
+          <p><strong>E-mail</strong> <em>(*)</em></p>
+          <input name="email" type="text" class="requiredField email"/>
+        </li>
+
+        <li>
+          <p><strong>URL</strong> <em>(Optional)</em></p>
+          <input name="url" type="text"/>
+        </li>
+
+        <li class="textarea">
+          <p><strong>Message</strong> <em>(*)</em></p>
+          <textarea name="message" rows="20" cols="30" class="requiredField"></textarea>
+        </li>
+
+        <li class="submit-button">
+          <input name="submit" id="submitted" value="Send Message" class="submit" type="submit"/>
+        </li>
+      </ul>
+    </form>
+    <!--END CONTACT FORM-->
+
+  </div>
+  <!--END ONE-HALF LAST-->
+
+</div>
+<!--END CONTACT-->
+
+<div id="portfolio">
+
+  <div class="section-title">
+    <h1>Portfolio</h1>
+
+    <p class="section-subtitle">"People ignore design that ignores people" – Frank Chimero</p>
+  </div>
+  <!--END SECTION TITLE-->
+
+</div>
+<!--END PORTFOLIO-->
+
+</div>
+
+<!--END DYNAMIC-CONTENT-WRAPPER-->
+
+<!-- START STATIC CONTENT WRAPPER -->
+
+<div class="static-content-wrapper">
+
+  <div class="section-nav filterable">
+    <ul id="portfolio-nav">
+      <li class="current"><a href="#" data-filter="*">All</a></li>
+      <li><a data-filter=".ux" href="#">UX</a></li>
+      <li><a data-filter=".ui" href="#">UI</a></li>
+      <li><a data-filter=".branding" href="#">Branding</a></li>
+      <li><a data-filter=".other" href="#">Other</a></li>
+    </ul>
+    <!--END PORTFOLIO-NAV-->
+  </div>
+  <!--END SECTION-NAV FILTERABLE-->
+
+  <div class="portfolio-grid">
+
+    <ul id="thumbs">
+      {% for portfolio in contents.portfolios %}
+      <li class="item {{ portfolio.classname | downcase }}">
+        <div class="img-container">
+          <div class="item-img">
+            <img src="{{ portfolio.preview.url }}" alt=""/>
+          </div>
+          <!-- slideshow -->
+          <ul>
+            <li><a href="/portfolios/{{ portfolio._permalink }}" class="view">details</a></li>
+            <li><a href="{{ portfolio.preview.url }}" class="preview" data-rel="prettyPhoto[ux]">preview</a></li>
+          </ul>
+        </div>
+        <!--END IMG-CONTAINER-->
+
+        <div class="item-info">
+          <h3 class="title">{{ portfolio.title }}</h3>
+          <span class="category">{{ portfolio.category }}</span>
+
+          <div class="intro">{{ portfolio.summary }}</div>
+        </div>
+        <!--END ITEM-INFO-->
+
+      </li>
+      {% endfor %}
+    </ul>
+    <!--END UL-->
+
+  </div>
+  <!--END PORTFOLIO-GRID-->
+
+</div>
+<!--END STATIC-CONTENT-WRAPPER-->
+
+</div>
+<!--END CONTENT-->
+
+<!-- START FOOTER -->
+<div id="footer">
+
+  <div id="footer-content-wrapper">
+
+    <div id="footer-content">
+
+      <a href="#" class="footer-trigger"><span></span></a>
+
+      <div id="trigger">
+
+        <div class="one-fourth">
+          <h3 class="title">Flickr photostream</h3>
+
+          <div class="photostream flickr_list_footer"></div>
+          <!--END PHOTOSTREAM FLICKR_LIST-->
+        </div>
+        <!--END ONE-FOURTH-->
+
+
+        <div class="one-fourth">
+          <h3 class="title">Latest tunes</h3>
+          {{ 'album_art.jpg' | theme_image_tag }}
+        </div>
+        <!--END ONE-FOURTH-->
+
+
+        <div class="one-fourth">
+          <h3 class="title">Latest tweets</h3>
+
+          <div class="tweets"></div>
+          <!--END TWEETS-->
+        </div>
+        <!--END ONE-FOURTH-->
+
+
+        <div class="one-fourth last">
+          {{ 'logo_footer.png' | theme_image_tag }}
+        </div>
+        <!--END ONE-FOURTH LAST-->
+
+      </div>
+      <!--END TRIGGER-->
+
+    </div>
+    <!--END FOOTER-CONTENT-->
+
+  </div>
+  <!--END FOOTER-CONTENT-WRAPPER-->
+
+
+  <div id="footer-bottom">
+    <div class="one-half">
+      <p>Copyright &copy; 2012 Michael Duskus. All rights reserved.</p>
+    </div>
+    <!--END ONE-HALF-->
+
+    <div class="one-half text-align-right last">
+      <p>Socialize with me on <a href="http://www.twitter.com/duskus" target="_blank">Twitter</a>, <a
+          href="https://plus.google.com/113644583106479643805/about" target="_blank">Google+</a>, <a
+          href="#">Dribbble</a>
+        or <a href="#">RSS</a></p>
+    </div>
+    <!--END ONE-HALF TRIGGER-FOOTER LAST-->
+
+  </div>
+  <!--END FOOTER-BOTTOM-->
+
+</div>
+<!-- END FOOTER -->
+
+</div>
+<!--END WRAPPER-->
+
+</body>
+</html>

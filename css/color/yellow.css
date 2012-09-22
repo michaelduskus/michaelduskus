@@ -1,0 +1,109 @@
+body {
+	border-top: 4px solid #FEEB43;
+}
+input.submit, input.submit:focus, input.submit:active {
+	background: #FEEB43;
+	color: #777777; 
+}
+input.submit:hover {
+	color: #fff; 
+}
+a { 
+	color: #F1D901;
+}
+.title a:hover {
+	color: #F1D901;
+}
+#back-top a:hover {
+	background-color: #FEEB43;
+}
+#notification-wrapper {
+	background: #FEEB43;
+	color: #777777; 
+}
+#notification-trigger {
+	color: #777777; 
+}
+.notification .tweets .tweet_text a {
+	color: #777777;
+}
+.notification .tweets a:hover {	
+	color: #FFFFFF;
+}
+.social-bookmarks li a {
+	background-color: #FEEB43;
+}
+.social-bookmarks li.text {
+	background-color: #FEEB43;
+}
+#primary-menu ul li:hover ul li a:hover { 
+    background: #FEEB43; 
+}
+#primary-menu ul li:hover ul li a:hover { 
+    color: #777;    
+}
+.section-title h1 {
+	color: #FEEB43;
+}
+#footer a:hover {
+	color: #FEEB43;
+}
+.photostream a:hover, #footer .photostream a:hover {
+	background-color: #FEEB43;
+}
+#services-graph li span {
+	background:  #FEEB43;
+}
+.highlight1 {
+	background-color: #FEEB43;
+	color: #777777;
+}
+.button.grey:hover {
+	background-color: #FEEB43;
+	color: #777777;
+}
+.portfolio-grid .item-info-overlay {
+	background-color: #FEEB43;
+}
+.filterable li.current a {
+	background-color: #FEEB43; 
+	color: #777777; 
+}
+ul.item-nav li a:hover {
+	background-color: #FEEB43;
+}
+
+
+
+.widget ul li a:hover {
+    color: #F1D901;
+}
+.entry-title h2.title a:hover {
+    color: #F1D901;
+}
+.entry-meta a:hover {
+    color: #F1D901;
+}
+.entry-date a {
+    background-color: #FEEB43;
+}
+#comment-list .comment-author a:hover {
+	color: #FEEB43;
+}
+#comment-list .avatar:hover {
+	background-color: #FEEB43;
+}
+#comment-list .reply a:hover {
+	color: #FEEB43;
+}
+.wp-pagenavi a:hover, .wp-pagenavi span.current {
+	background-color: #FEEB43;
+}
+
+
+.slideshow-container { 
+	background-color: #FEEB43; 
+	color: #777777;
+}
+.slideshow-container .section-title { color: #777777; }
+.slideshow-container .section-title h1 { color: #777777; }
