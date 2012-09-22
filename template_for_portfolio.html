@@ -102,8 +102,7 @@
                 <li><a href="/index.html#portfolio"
                        data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Work</strong><span>What I do</span></a>
                 </li>
-                <!--<li><a href="/index.html#blog"-->
-                       <!--data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Blog</strong><span>What I think</span></a>-->
+                <!--<li><a href="/index.html#blog" data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Blog</strong><span>What I think</span></a>-->
                 <!--</li>-->
                 <li><a href="/index.html#contact"
                        data-rel="{{ 'pattern/bg-12.png?tiled' | theme_image_url }}"><strong>Contact</strong><span>Get in touch</span></a>
@@ -150,14 +149,13 @@
             <!--END ONE-THIRD-->
 
             <div class="two-third last">
-
                 <div class="flexslider" id="portfolio-slider">
                     <ul class="slides">
                         {% for image in portfolio.portfolio_images %}
                         <li>
                             <img src="{{ image.image.url }}" alt=""/>
                             {% if image.caption.size > 0 %}
-                                <p class="flex-caption">{{ image.caption.size }}</p>
+                                <p class="flex-caption">{{ image.caption }}</p>
                             {% endif %}
                         </li>
                         {% endfor %}
@@ -207,8 +205,7 @@
                         <!-- slideshow -->
                         <ul>
                             <li><a href="/portfolios/{{ portfolio._permalink }}" class="view">details</a></li>
-                            <!--<li><a href="{{ portfolio.preview.url }}" class="preview"-->
-                                   <!--data-rel="prettyPhoto[ux]">preview</a></li>-->
+                            <!--<li><a href="{{ portfolio.preview.url }}" class="preview" data-rel="prettyPhoto[ux]">preview</a></li>-->
                         </ul>
                     </div>
                     <!--END IMG-CONTAINER-->
