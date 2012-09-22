@@ -1223,3 +1223,5 @@ ul.item-nav li.all a {
 #primary-menu li ul li a { background-color: #777; }
 .form input, .form textarea { width: 94%; }
 }
+
+.menu { margin-left: 0; list-style: none; }
