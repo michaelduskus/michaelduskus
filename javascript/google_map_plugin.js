@@ -64,5 +64,5 @@
 })(jQuery);
 
 $(document).ready(function() {
-  $('#bra-map').bra_google_map({location: 'San Francisco', zoom: 12});
+  $('#bra-map').bra_google_map({location: 'San Francisco', zoom: 13});
 });
